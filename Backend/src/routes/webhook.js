@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 const Booking = require('../models/Booking');
+const { generateTicketId, generateTicketPDF } = require('../utils/ticketGenerator');
 const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET;
 
 router.post('/', express.raw({type:'application/json'}), async (req,res)=>{
@@ -15,13 +16,29 @@ router.post('/', express.raw({type:'application/json'}), async (req,res)=>{
   if(event.type === 'checkout.session.completed'){
     const session = event.data.object;
     const bookingId = session.metadata.bookingId;
-    const booking = await Booking.findById(bookingId);
+    const booking = await Booking.findById(bookingId).populate('user', 'name email studentId');
     if(booking){
       booking.status = 'paid';
-      // generate ticketId, QR, PDF here or call a service
-      booking.ticketId = `MTBS-${Date.now().toString().slice(-6)}`;
+      
+      // Generate ticket ID
+      booking.ticketId = generateTicketId();
+      
+      try {
+        // Generate PDF ticket with QR code
+        const pdfPath = await generateTicketPDF(booking);
+        booking.pdfPath = pdfPath;
+        
+        console.log(`Ticket generated for booking ${bookingId}: ${booking.ticketId}`);
+        
+        // TODO: Send email with PDF attachment here
+        // await sendTicketEmail(booking.user.email, pdfPath);
+        
+      } catch (error) {
+        console.error('Error generating ticket:', error);
+        // Continue saving booking even if ticket generation fails
+      }
+      
       await booking.save();
-      // optionally trigger PDF/QR generation & email here
     }
   }
   res.json({received:true});

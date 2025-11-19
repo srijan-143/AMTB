@@ -1,0 +1,311 @@
+.admin-container {
+  width: 100%;
+  min-height: 100vh;
+  padding: 120px 5% 50px 5%;
+  background: linear-gradient(135deg, #F0F4E8 0%, #F5F8F0 100%);
+  animation: fadeIn 0.6s ease-out;
+}
+
+.admin-container h1 {
+  margin-bottom: 40px;
+  color: var(--text-dark);
+  font-size: 2.5rem;
+  text-align: center;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.admin-container h1::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-green) 0%, var(--light-green) 100%);
+  border-radius: 2px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 25px;
+  margin-bottom: 50px;
+  max-width: 1600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.stat-card {
+  background: linear-gradient(135deg, white 0%, var(--cream) 100%);
+  padding: 30px 25px;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(107, 142, 35, 0.15);
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+  animation: scaleIn 0.5s ease-out;
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, var(--primary-green) 0%, var(--light-green) 100%);
+}
+
+.stat-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 15px 40px rgba(107, 142, 35, 0.25);
+  border-color: var(--primary-green);
+}
+
+.stat-card h3 {
+  color: var(--text-medium);
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--dark-green) 0%, var(--primary-green) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0;
+}
+
+.bookings-section {
+  background: linear-gradient(135deg, white 0%, var(--cream) 100%);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(107, 142, 35, 0.15);
+  border: 2px solid rgba(107, 142, 35, 0.1);
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.bookings-section h2 {
+  margin-bottom: 30px;
+  color: var(--text-dark);
+  font-size: 2rem;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.bookings-section h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-green) 0%, var(--light-green) 100%);
+  border-radius: 2px;
+}
+
+.filters {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.filters select {
+  padding: 12px 18px;
+  border: 2px solid rgba(107, 142, 35, 0.2);
+  border-radius: 10px;
+  background: white;
+  color: var(--text-dark);
+  font-weight: 500;
+  transition: all 0.3s;
+  cursor: pointer;
+  flex: 1;
+  min-width: 180px;
+}
+
+.filters select:focus {
+  outline: none;
+  border-color: var(--primary-green);
+  box-shadow: 0 0 0 4px rgba(107, 142, 35, 0.1);
+}
+
+.btn-filter {
+  padding: 12px 30px;
+  background: linear-gradient(135deg, var(--primary-green) 0%, var(--light-green) 100%);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s;
+  box-shadow: 0 6px 20px rgba(107, 142, 35, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn-filter:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(107, 142, 35, 0.4);
+  background: linear-gradient(135deg, var(--light-green) 0%, var(--primary-green) 100%);
+}
+
+.table-container {
+  overflow-x: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.1);
+}
+
+.bookings-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+.bookings-table th,
+.bookings-table td {
+  padding: 16px 20px;
+  text-align: left;
+  border-bottom: 2px solid var(--pale-green);
+}
+
+.bookings-table th {
+  background: linear-gradient(135deg, var(--pale-green) 0%, var(--warm-beige) 100%);
+  font-weight: 700;
+  color: var(--text-dark);
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.bookings-table tbody tr {
+  transition: all 0.3s;
+}
+
+.bookings-table tbody tr:hover {
+  background: linear-gradient(135deg, var(--very-pale-green) 0%, var(--pale-green) 100%);
+  transform: scale(1.01);
+}
+
+.bookings-table td {
+  color: var(--text-dark);
+  font-weight: 500;
+}
+
+.bookings-table td small {
+  color: var(--light-green);
+  font-size: 0.85rem;
+  display: block;
+  margin-top: 4px;
+}
+
+.status-select {
+  padding: 8px 14px;
+  border: 2px solid rgba(107, 142, 35, 0.2);
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--text-dark);
+  transition: all 0.3s;
+}
+
+.status-select:focus {
+  outline: none;
+  border-color: var(--primary-green);
+  box-shadow: 0 0 0 3px rgba(107, 142, 35, 0.1);
+}
+
+.status-select:hover {
+  background: var(--pale-green);
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 1200px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .admin-container {
+    padding: 30px 4%;
+  }
+
+  .admin-container h1 {
+    font-size: 2rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .bookings-section {
+    padding: 25px 20px;
+  }
+
+  .bookings-section h2 {
+    font-size: 1.6rem;
+  }
+
+  .filters {
+    flex-direction: column;
+  }
+
+  .filters select {
+    min-width: 100%;
+  }
+
+  .btn-filter {
+    width: 100%;
+  }
+
+  .table-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .bookings-table th,
+  .bookings-table td {
+    padding: 12px 10px;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-container h1 {
+    font-size: 1.6rem;
+  }
+
+  .stat-number {
+    font-size: 2rem;
+  }
+
+  .bookings-section h2 {
+    font-size: 1.3rem;
+  }
+}
