@@ -2,8 +2,9 @@
   width: 100%;
   min-height: calc(100vh - 70px);
   padding: 120px 5% 40px 5%;
-  background: linear-gradient(135deg, #F0F4E8 0%, #F5F8F0 50%, #F0F4E8 100%);
+  background: var(--background);
   animation: fadeIn 0.6s ease-out;
+  transition: background 0.3s ease;
 }
 
 .welcome-section {
@@ -16,7 +17,7 @@
   color: var(--text-dark);
   margin-bottom: 15px;
   font-size: 2.8rem;
-  background: linear-gradient(135deg, #556B2F 0%, #6B8E23 100%);
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -29,32 +30,36 @@
   margin-bottom: 30px;
 }
 
-.menu-title {
+/* Horizontal Meal Timings Strip */
+.meal-timings-strip {
+  margin-top: 40px;
+  padding: 30px;
+  background: linear-gradient(135deg, var(--card-bg) 0%, var(--pale-green) 100%);
+  border-radius: 20px;
+  box-shadow: 0 8px 30px var(--shadow);
+  border: 2px solid var(--border-color);
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  transition: all 0.3s ease;
+}
+
+.meal-timings-strip .menu-title {
   color: var(--text-dark);
   font-size: 1.8rem;
   font-weight: 700;
   margin-bottom: 25px;
   text-align: center;
-  background: linear-gradient(135deg, var(--dark-green) 0%, var(--accent-orange) 100%);
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* Horizontal Meal Timings Strip */
-.meal-timings-strip {
+.meal-timings-row {
   display: flex;
   justify-content: center;
   gap: 30px;
-  margin-top: 40px;
-  padding: 30px;
-  background: linear-gradient(135deg, var(--cream) 0%, var(--warm-beige) 100%);
-  border-radius: 20px;
-  box-shadow: 0 8px 30px rgba(107, 142, 35, 0.15);
-  border: 2px solid rgba(107, 142, 35, 0.1);
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .timing-item {
@@ -62,42 +67,32 @@
   align-items: center;
   gap: 15px;
   padding: 15px 25px;
-  background: white;
+  background: var(--card-bg);
   border-radius: 12px;
   flex: 1;
   transition: all 0.3s;
   border: 2px solid transparent;
   cursor: pointer;
   position: relative;
-  overflow: hidden;
-}
-
-.timing-item::after {
-  content: '👆 Click to see menu';
-  position: absolute;
-  bottom: -30px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--primary-green);
-  color: white;
-  padding: 4px 10px;
-  border-radius: 12px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  white-space: nowrap;
-  opacity: 0;
-  transition: all 0.3s;
 }
 
 .timing-item:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(107, 142, 35, 0.2);
-  border-color: var(--primary-green);
+  box-shadow: 0 10px 25px rgba(74, 124, 89, 0.25);
+  border-color: var(--secondary-color);
 }
 
-.timing-item:hover::after {
-  bottom: 5px;
-  opacity: 1;
+.expand-arrow {
+  font-size: 1.5rem;
+  color: var(--accent-color);
+  font-weight: bold;
+  transition: all 0.3s;
+  margin-left: auto;
+}
+
+.timing-item:hover .expand-arrow {
+  transform: translateX(5px);
+  color: var(--primary-color);
 }
 
 .timing-item:active {
@@ -137,10 +132,10 @@
 }
 
 .action-card {
-  background: linear-gradient(135deg, white 0%, #F9FFF9 100%);
+  background: linear-gradient(135deg, var(--card-bg) 0%, var(--very-pale-green) 100%);
   padding: 40px 30px;
   border-radius: 16px;
-  box-shadow: 0 8px 25px rgba(76, 175, 80, 0.15);
+  box-shadow: 0 8px 25px var(--shadow);
   text-align: center;
   text-decoration: none;
   color: inherit;
@@ -196,13 +191,14 @@
 }
 
 .info-section {
-  background: linear-gradient(135deg, white 0%, #F9FFF9 100%);
+  background: linear-gradient(135deg, var(--card-bg) 0%, var(--very-pale-green) 100%);
   padding: 50px 40px;
   border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(76, 175, 80, 0.15);
+  box-shadow: 0 10px 30px var(--shadow);
   max-width: 1400px;
   margin: 0 auto;
-  border: 2px solid rgba(76, 175, 80, 0.1);
+  border: 2px solid var(--border-color);
+  transition: all 0.3s ease;
 }
 
 .info-section h2 {
@@ -245,7 +241,7 @@
 .step-number {
   width: 70px;
   height: 70px;
-  background: linear-gradient(135deg, var(--primary-green) 0%, var(--light-green) 100%);
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
   color: white;
   border-radius: 50%;
   display: flex;
@@ -254,13 +250,13 @@
   font-size: 32px;
   font-weight: bold;
   margin: 0 auto 20px;
-  box-shadow: 0 8px 20px rgba(107, 142, 35, 0.3);
+  box-shadow: 0 8px 20px rgba(45, 90, 39, 0.3);
   transition: all 0.3s;
 }
 
 .step:hover .step-number {
   transform: rotate(360deg) scale(1.1);
-  box-shadow: 0 12px 30px rgba(107, 142, 35, 0.4);
+  box-shadow: 0 12px 30px rgba(45, 90, 39, 0.4);
 }
 
 .step h4 {
@@ -289,13 +285,21 @@
   }
 
   .meal-timings-strip {
-    flex-direction: column;
-    gap: 15px;
     padding: 20px;
   }
 
+  .meal-timings-row {
+    flex-direction: column;
+    gap: 15px;
+  }
+
   .timing-item {
-    justify-content: center;
+    justify-content: space-between;
+  }
+
+  .meal-timings-strip .menu-title {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
   }
 
   .quick-actions {
@@ -334,38 +338,41 @@
 }
 
 .meal-popup {
-  background: linear-gradient(135deg, white 0%, var(--cream) 100%);
+  background: linear-gradient(135deg, var(--card-bg) 0%, var(--cream) 100%);
   border-radius: 20px;
   padding: 40px 50px;
   max-width: 500px;
   width: 90%;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 20px 60px var(--shadow-hover);
   position: relative;
   animation: scaleIn 0.3s ease-out;
-  border: 3px solid var(--primary-green);
+  border: 3px solid var(--accent-color);
+  transition: all 0.3s ease;
 }
 
 .close-popup {
   position: absolute;
   top: 15px;
   right: 15px;
-  background: var(--primary-green);
+  background: var(--primary-color);
   color: white;
   border: none;
   width: 35px;
   height: 35px;
   border-radius: 50%;
-  font-size: 24px;
+  font-size: 20px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.3s;
   line-height: 1;
+  padding: 0;
+  margin: 0;
 }
 
 .close-popup:hover {
-  background: var(--dark-green);
+  background: var(--secondary-color);
   transform: rotate(90deg);
 }
 
@@ -382,14 +389,14 @@
   color: var(--text-dark);
   font-size: 2rem;
   margin-bottom: 10px;
-  background: linear-gradient(135deg, var(--dark-green) 0%, var(--primary-green) 100%);
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .meal-day {
-  color: var(--accent-orange);
+  color: var(--accent-color);
   font-size: 1.1rem;
   font-weight: 600;
   margin-bottom: 25px;
@@ -402,7 +409,7 @@
   font-size: 1.15rem;
   color: var(--text-dark);
   line-height: 1.8;
-  border: 2px solid rgba(107, 142, 35, 0.2);
+  border: 2px solid rgba(244, 164, 96, 0.3);
   font-weight: 500;
 }
 
@@ -425,17 +432,18 @@
 
   .timing-item {
     padding: 12px 15px;
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .timing-item::after {
-    font-size: 0.65rem;
-    padding: 3px 8px;
+    flex-direction: row;
+    align-items: center;
   }
 
   .timing-content {
-    text-align: center;
+    text-align: left;
+    flex: 1;
+  }
+
+  .expand-arrow {
+    font-size: 1.2rem;
+    margin-left: 10px;
   }
 
   .timing-icon {

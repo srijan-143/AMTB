@@ -1,13 +1,14 @@
 .navbar {
-  background: linear-gradient(135deg, #6B8E23 0%, #556B2F 100%);
+  background: var(--navbar-bg);
   padding: 0;
-  box-shadow: 0 4px 20px rgba(107, 142, 35, 0.3);
+  box-shadow: 0 4px 20px var(--shadow-hover);
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
   backdrop-filter: blur(10px);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
 .nav-container {
@@ -16,6 +17,29 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.theme-toggle-btn {
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 50%;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  margin: 0 8px;
+}
+
+.theme-toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: scale(1.1) rotate(15deg);
 }
 
 .nav-logo {
@@ -75,25 +99,27 @@
 }
 
 .nav-btn {
-  background-color: var(--cream);
-  color: var(--primary-green);
-  padding: 10px 28px;
-  border: 2px solid var(--cream);
-  border-radius: 25px;
+  background-color: var(--card-bg);
+  color: var(--primary-color);
+  padding: 12px 24px;
+  border: 2px solid var(--card-bg);
+  border-radius: 8px;
   font-weight: 600;
   cursor: pointer;
   text-decoration: none;
   display: inline-block;
   transition: all 0.3s;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  font-size: 16px;
+  box-shadow: 0 4px 15px var(--shadow);
+  font-size: 15px;
+  margin-left: 8px;
 }
 
 .nav-btn:hover {
-  background-color: transparent;
+  background-color: rgba(255, 255, 255, 0.1);
   color: white;
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
 /* Mobile Menu Button */
@@ -121,6 +147,14 @@
     display: block;
   }
 
+  .theme-toggle-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+    margin: 8px 0;
+    align-self: center;
+  }
+
   .nav-menu {
     position: fixed;
     top: 70px;
@@ -128,7 +162,7 @@
     width: 80%;
     max-width: 350px;
     height: calc(100vh - 70px);
-    background: linear-gradient(180deg, #6B8E23 0%, #556B2F 100%);
+    background: linear-gradient(180deg, var(--primary-color) 0%, var(--secondary-color) 100%);
     flex-direction: column;
     align-items: stretch;
     padding: 30px 20px;

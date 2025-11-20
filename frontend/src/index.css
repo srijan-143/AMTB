@@ -5,24 +5,49 @@
 }
 
 :root {
-  /* Nôm Color Palette */
-  --primary-green: #6B8E23;
-  --dark-green: #556B2F;
+  /* Light Theme (Default) */
+  --primary-color: #2D5A27;
+  --secondary-color: #4A7C59;
+  --accent-color: #F4A460;
   --light-green: #8FBC8F;
-  --pale-green: #F0F4E8;
-  --very-pale-green: #F5F8F0;
-  --accent-orange: #D2691E;
-  --warm-beige: #F5DEB3;
-  --cream: #FFFEF7;
-  --text-dark: #2F4F2F;
-  --text-medium: #556B2F;
+  --pale-green: #F0F8F0;
+  --very-pale-green: #F8FDF8;
+  --cream: #FFF8F0;
+  --text-dark: #1B3B1B;
+  --text-medium: #2D5A27;
   --text-light: #666;
-  --background: linear-gradient(135deg, #F0F4E8 0%, #F5F8F0 100%);
-  --white: #FFFFFF;
-  --shadow: rgba(107, 142, 35, 0.15);
-  --shadow-hover: rgba(107, 142, 35, 0.25);
+  --background: linear-gradient(135deg, #F8FDF8 0%, #FFF8F0 100%);
+  --card-bg: #FFFFFF;
+  --navbar-bg: linear-gradient(135deg, #2D5A27 0%, #4A7C59 100%);
+  --shadow: rgba(45, 90, 39, 0.15);
+  --shadow-hover: rgba(45, 90, 39, 0.25);
+  --border-color: rgba(143, 188, 143, 0.3);
+  --input-bg: #FFFFFF;
+  --scrollbar-track: #F0F8F0;
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.6;
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+  --primary-color: #4A7C59;
+  --secondary-color: #6B9B6B;
+  --accent-color: #FFB366;
+  --light-green: #5A8A5A;
+  --pale-green: #2A3A2A;
+  --very-pale-green: #1F2F1F;
+  --cream: #2D2D2D;
+  --text-dark: #E8F5E8;
+  --text-medium: #C8E6C9;
+  --text-light: #A5A5A5;
+  --background: linear-gradient(135deg, #1A1A1A 0%, #2D2D2D 100%);
+  --card-bg: #333333;
+  --navbar-bg: linear-gradient(135deg, #1B2A1B 0%, #2D3A2D 100%);
+  --shadow: rgba(0, 0, 0, 0.3);
+  --shadow-hover: rgba(0, 0, 0, 0.5);
+  --border-color: rgba(74, 124, 89, 0.4);
+  --input-bg: #404040;
+  --scrollbar-track: #2A3A2A;
 }
 
 body {
@@ -30,10 +55,11 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #F0F4E8;
+  background: var(--background);
   color: var(--text-dark);
   min-height: 100vh;
   overflow-x: hidden;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 #root {
@@ -60,20 +86,20 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Scrollbar Styles */
 ::-webkit-scrollbar {
-  width: 12px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--pale-green);
+  background: var(--scrollbar-track);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--primary-green);
-  border-radius: 6px;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--dark-green);
+  background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
 }
 
 @media (prefers-color-scheme: light) {

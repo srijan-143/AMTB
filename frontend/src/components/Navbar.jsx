@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { useTheme } from '../context/ThemeContext';
 import './Navbar.css';
 
 export default function Navbar() {
   const { user, logout } = useAuth();
+  const { isDarkMode, toggleTheme } = useTheme();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const closeMobileMenu = () => setMobileMenuOpen(false);
@@ -40,6 +42,14 @@ export default function Navbar() {
                 👤 Admin
               </Link>
             )}
+            <button 
+              className="theme-toggle-btn" 
+              onClick={toggleTheme}
+              aria-label="Toggle theme"
+              title={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+            >
+              {isDarkMode ? '☀️' : '🌙'}
+            </button>
             <button onClick={() => { logout(); closeMobileMenu(); }} className="nav-btn">
               Logout
             </button>
@@ -49,6 +59,14 @@ export default function Navbar() {
             <Link to="/login" className="nav-link" onClick={closeMobileMenu}>
               Login
             </Link>
+            <button 
+              className="theme-toggle-btn" 
+              onClick={toggleTheme}
+              aria-label="Toggle theme"
+              title={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+            >
+              {isDarkMode ? '☀️' : '🌙'}
+            </button>
             <Link to="/register" className="nav-btn" onClick={closeMobileMenu}>
               Register
             </Link>

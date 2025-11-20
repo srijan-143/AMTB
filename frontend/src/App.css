@@ -8,7 +8,7 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #F0F4E8;
+  background: #F8FDF8;
   min-height: 100vh;
 }
 
@@ -126,7 +126,7 @@ button:disabled {
 
 .btn-primary {
   background: linear-gradient(135deg, var(--primary-green) 0%, var(--dark-green) 100%);
-  color: white;
+  color: rgb(12, 143, 12);
   padding: 12px 24px;
   border-radius: 8px;
   font-size: 16px;

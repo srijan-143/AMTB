@@ -5,9 +5,10 @@
   min-height: 100vh;
   width: 100%;
   padding: 110px 5% 40px 5%;
-  background: linear-gradient(135deg, #F0F4E8 0%, #F5F8F0 50%, #F0F4E8 100%);
+  background: var(--background);
   position: relative;
   overflow: hidden;
+  transition: background 0.3s ease;
 }
 
 .auth-container::before {
@@ -33,16 +34,17 @@
 }
 
 .auth-card {
-  background: linear-gradient(135deg, white 0%, var(--cream) 100%);
+  background: linear-gradient(135deg, var(--card-bg) 0%, var(--cream) 100%);
   padding: 50px 45px;
   border-radius: 20px;
-  box-shadow: 0 15px 50px rgba(107, 142, 35, 0.2);
+  box-shadow: 0 15px 50px var(--shadow-hover);
   width: 100%;
   max-width: 500px;
-  border: 2px solid rgba(107, 142, 35, 0.1);
+  border: 2px solid var(--border-color);
   animation: scaleIn 0.5s ease-out;
   position: relative;
   z-index: 1;
+  transition: all 0.3s ease;
 }
 
 .auth-card::before {
@@ -52,7 +54,7 @@
   left: 0;
   right: 0;
   height: 6px;
-  background: linear-gradient(90deg, var(--primary-green) 0%, var(--light-green) 100%);
+  background: linear-gradient(90deg, var(--primary-color) 0%, var(--accent-color) 100%);
   border-radius: 20px 20px 0 0;
 }
 
@@ -79,18 +81,18 @@
 .form-group input {
   width: 100%;
   padding: 14px 16px;
-  border: 2px solid rgba(107, 142, 35, 0.2);
+  border: 2px solid var(--border-color);
   border-radius: 10px;
   font-size: 15px;
   transition: all 0.3s;
-  background: white;
+  background: var(--input-bg);
   color: var(--text-dark);
 }
 
 .form-group input:focus {
   outline: none;
-  border-color: var(--primary-green);
-  box-shadow: 0 0 0 4px rgba(107, 142, 35, 0.1);
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 0 4px rgba(74, 124, 89, 0.15);
   transform: translateY(-2px);
 }
 
@@ -112,7 +114,7 @@
 .btn-primary {
   width: 100%;
   padding: 15px;
-  background: linear-gradient(135deg, var(--primary-green) 0%, var(--light-green) 100%);
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
   color: white;
   border: none;
   border-radius: 10px;
@@ -120,15 +122,15 @@
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s;
-  box-shadow: 0 6px 20px rgba(107, 142, 35, 0.3);
+  box-shadow: 0 6px 20px var(--shadow-hover);
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
 .btn-primary:hover:not(:disabled) {
   transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(107, 142, 35, 0.4);
-  background: linear-gradient(135deg, var(--light-green) 0%, var(--primary-green) 100%);
+  box-shadow: 0 10px 30px rgba(45, 90, 39, 0.4);
+  background: linear-gradient(135deg, #4A7C59 0%, #2D5A27 100%);
 }
 
 .btn-primary:active:not(:disabled) {
@@ -136,10 +138,11 @@
 }
 
 .btn-primary:disabled {
-  background: linear-gradient(135deg, var(--light-green) 0%, var(--pale-green) 100%);
+  background: linear-gradient(135deg, #8FBC8F 0%, #E8F5E8 100%);
   cursor: not-allowed;
   box-shadow: none;
   transform: none;
+  color: #666;
 }
 
 .auth-link {

@@ -70,30 +70,33 @@ export default function Dashboard() {
         <h1>Welcome to Mess Token Booking System</h1>
         <p>Book your meals quickly and conveniently</p>
         
-        {/* Today's Menu Title */}
-        <h2 className="menu-title">Today's Menu - {todayMenu.day}</h2>
-        
-        {/* Meal Timings as horizontal strip */}
+        {/* Meal Timings as horizontal strip with integrated title */}
         <div className="meal-timings-strip">
-          <div className="timing-item" onClick={() => handleMealClick('breakfast')}>
-            <span className="timing-icon">🌅</span>
-            <div className="timing-content">
-              <h4>Breakfast</h4>
-              <p>7:00 AM - 9:00 AM</p>
+          <h2 className="menu-title">Today's Menu - {todayMenu.day}</h2>
+          <div className="meal-timings-row">
+            <div className="timing-item" onClick={() => handleMealClick('breakfast')}>
+              <span className="timing-icon">🌅</span>
+              <div className="timing-content">
+                <h4>Breakfast</h4>
+                <p>7:00 AM - 9:00 AM</p>
+              </div>
+              <div className="expand-arrow">→</div>
             </div>
-          </div>
-          <div className="timing-item" onClick={() => handleMealClick('lunch')}>
-            <span className="timing-icon">☀️</span>
-            <div className="timing-content">
-              <h4>Lunch</h4>
-              <p>12:00 PM - 2:00 PM</p>
+            <div className="timing-item" onClick={() => handleMealClick('lunch')}>
+              <span className="timing-icon">☀️</span>
+              <div className="timing-content">
+                <h4>Lunch</h4>
+                <p>12:00 PM - 2:00 PM</p>
+              </div>
+              <div className="expand-arrow">→</div>
             </div>
-          </div>
-          <div className="timing-item" onClick={() => handleMealClick('dinner')}>
-            <span className="timing-icon">🌙</span>
-            <div className="timing-content">
-              <h4>Dinner</h4>
-              <p>7:00 PM - 9:00 PM</p>
+            <div className="timing-item" onClick={() => handleMealClick('dinner')}>
+              <span className="timing-icon">🌙</span>
+              <div className="timing-content">
+                <h4>Dinner</h4>
+                <p>7:00 PM - 9:00 PM</p>
+              </div>
+              <div className="expand-arrow">→</div>
             </div>
           </div>
         </div>

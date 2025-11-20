@@ -2,8 +2,9 @@
   width: 100%;
   min-height: 100vh;
   padding: 120px 5% 50px 5%;
-  background: linear-gradient(135deg, #F0F4E8 0%, #F5F8F0 100%);
+  background: var(--background);
   animation: fadeIn 0.6s ease-out;
+  transition: background 0.3s ease;
 }
 
 .admin-container h1 {
@@ -23,7 +24,7 @@
   transform: translateX(-50%);
   width: 150px;
   height: 4px;
-  background: linear-gradient(90deg, var(--primary-green) 0%, var(--light-green) 100%);
+  background: linear-gradient(90deg, var(--primary-color) 0%, var(--accent-color) 100%);
   border-radius: 2px;
 }
 
@@ -38,10 +39,10 @@
 }
 
 .stat-card {
-  background: linear-gradient(135deg, white 0%, var(--cream) 100%);
+  background: linear-gradient(135deg, var(--card-bg) 0%, var(--cream) 100%);
   padding: 30px 25px;
   border-radius: 16px;
-  box-shadow: 0 8px 25px rgba(107, 142, 35, 0.15);
+  box-shadow: 0 8px 25px var(--shadow);
   text-align: center;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   border: 2px solid transparent;
@@ -57,13 +58,13 @@
   left: 0;
   right: 0;
   height: 5px;
-  background: linear-gradient(90deg, var(--primary-green) 0%, var(--light-green) 100%);
+  background: linear-gradient(90deg, var(--primary-color) 0%, var(--accent-color) 100%);
 }
 
 .stat-card:hover {
   transform: translateY(-8px) scale(1.03);
-  box-shadow: 0 15px 40px rgba(107, 142, 35, 0.25);
-  border-color: var(--primary-green);
+  box-shadow: 0 15px 40px rgba(74, 124, 89, 0.25);
+  border-color: var(--secondary-color);
 }
 
 .stat-card h3 {
@@ -78,7 +79,7 @@
 .stat-number {
   font-size: 2.5rem;
   font-weight: 800;
-  background: linear-gradient(135deg, var(--dark-green) 0%, var(--primary-green) 100%);
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -86,13 +87,14 @@
 }
 
 .bookings-section {
-  background: linear-gradient(135deg, white 0%, var(--cream) 100%);
+  background: linear-gradient(135deg, var(--card-bg) 0%, var(--cream) 100%);
   padding: 40px;
   border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(107, 142, 35, 0.15);
-  border: 2px solid rgba(107, 142, 35, 0.1);
+  box-shadow: 0 10px 30px var(--shadow);
+  border: 2px solid var(--border-color);
   max-width: 1600px;
   margin: 0 auto;
+  transition: all 0.3s ease;
 }
 
 .bookings-section h2 {
@@ -110,7 +112,7 @@
   left: 0;
   width: 80px;
   height: 4px;
-  background: linear-gradient(90deg, var(--primary-green) 0%, var(--light-green) 100%);
+  background: linear-gradient(90deg, var(--primary-color) 0%, var(--accent-color) 100%);
   border-radius: 2px;
 }
 
@@ -123,9 +125,9 @@
 
 .filters select {
   padding: 12px 18px;
-  border: 2px solid rgba(107, 142, 35, 0.2);
+  border: 2px solid var(--border-color);
   border-radius: 10px;
-  background: white;
+  background: var(--input-bg);
   color: var(--text-dark);
   font-weight: 500;
   transition: all 0.3s;
@@ -136,28 +138,28 @@
 
 .filters select:focus {
   outline: none;
-  border-color: var(--primary-green);
-  box-shadow: 0 0 0 4px rgba(107, 142, 35, 0.1);
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 0 4px rgba(74, 124, 89, 0.15);
 }
 
 .btn-filter {
   padding: 12px 30px;
-  background: linear-gradient(135deg, var(--primary-green) 0%, var(--light-green) 100%);
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
   color: white;
   border: none;
   border-radius: 10px;
   cursor: pointer;
   font-weight: 600;
   transition: all 0.3s;
-  box-shadow: 0 6px 20px rgba(107, 142, 35, 0.3);
+  box-shadow: 0 6px 20px rgba(45, 90, 39, 0.3);
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
 .btn-filter:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(107, 142, 35, 0.4);
-  background: linear-gradient(135deg, var(--light-green) 0%, var(--primary-green) 100%);
+  box-shadow: 0 10px 30px rgba(45, 90, 39, 0.4);
+  background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
 }
 
 .table-container {
@@ -180,7 +182,7 @@
 }
 
 .bookings-table th {
-  background: linear-gradient(135deg, var(--pale-green) 0%, var(--warm-beige) 100%);
+  background: linear-gradient(135deg, var(--pale-green) 0%, var(--cream) 100%);
   font-weight: 700;
   color: var(--text-dark);
   text-transform: uppercase;
@@ -206,7 +208,7 @@
 }
 
 .bookings-table td small {
-  color: var(--light-green);
+  color: var(--accent-color);
   font-size: 0.85rem;
   display: block;
   margin-top: 4px;
@@ -214,9 +216,9 @@
 
 .status-select {
   padding: 8px 14px;
-  border: 2px solid rgba(107, 142, 35, 0.2);
+  border: 2px solid var(--border-color);
   border-radius: 8px;
-  background: white;
+  background: var(--input-bg);
   cursor: pointer;
   font-weight: 600;
   color: var(--text-dark);
@@ -225,8 +227,8 @@
 
 .status-select:focus {
   outline: none;
-  border-color: var(--primary-green);
-  box-shadow: 0 0 0 3px rgba(107, 142, 35, 0.1);
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 0 3px rgba(74, 124, 89, 0.15);
 }
 
 .status-select:hover {
